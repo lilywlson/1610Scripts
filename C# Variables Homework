@@ -1,0 +1,33 @@
+using System;
+
+namespace HelloWorld
+{
+    class Program
+    {
+        // [data-type] [identifier] [assignment operator] [value]   
+        // Variable Declaration
+        static void Main(string[] args)
+        {
+            int age = 23;
+            int birthmonth = 8;
+            float height = 5.5f;
+            double weight = 215.5d;
+            string nameFirst = "Lily";
+            string nameLast = "Wilson";
+            char middleinitial = 'K';
+            char sex = 'F';
+            bool alive = true;
+            bool student = true;
+        Console.WriteLine(age);
+        Console.WriteLine(birthmonth);
+        Console.WriteLine(height);
+        Console.WriteLine(weight);
+        Console.WriteLine(nameFirst);
+        Console.WriteLine(nameLast);
+        Console.WriteLine(middleinitial);
+        Console.WriteLine(sex);
+        Console.WriteLine(alive);
+        Console.WriteLine(student);
+        }
+    }
+}
