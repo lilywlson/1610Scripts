@@ -1,0 +1,40 @@
+using System;
+using System.IO;
+using System.Text;
+
+namespace Homework
+{
+    class ModuleAssignment
+    {
+        // If Statements
+        static void Main(string[] args)
+        {
+            string animalType = "Cat";
+            string colorFur = "Light Gray and Orange";
+            char animalSex = 'F';
+            float animalAge = 1.5f;
+            bool sterilized = true;
+            bool declawed = false;
+            if(animalType == "Cat")
+            {
+                Console.Write("CAT\n");
+            }
+             if(colorFur == "Light Gray and Orange")
+            {
+                Console.Write("DILUTE TORTOISESHELL\n");
+            }
+             if(animalSex == 'F')
+            {
+                Console.Write("FEMALE\n");
+            }
+             if(sterilized == true)
+            {
+                Console.Write("SPAYED\n");
+            }
+           if(declawed == true)
+            {
+                Console.Write("DECLAWED\n");
+            }
+        }
+    }
+}
