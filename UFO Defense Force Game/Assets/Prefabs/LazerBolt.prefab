@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -1995379720072865334}
   m_Layer: 0
   m_Name: LazerBolt
-  m_TagString: Untagged
+  m_TagString: LazerBolt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
