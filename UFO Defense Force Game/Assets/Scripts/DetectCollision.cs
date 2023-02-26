@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DetectCollisions : MonoBehaviour
+public class DetectCollision : MonoBehaviour
 {
 
-    // private ScoreManager scoreManager; // variable to hold ref to scoremanager
-    // public int scoreToGive;
+    private ScoreManager scoreManager; // variable to hold ref to scoremanager
+    public int scoreToGive;
     // public ParticleSystem explosionParticle; // store particle system
 
     // Start is called before the first frame update
     void Start()
     {
-        // scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>(); // ref scoremanager
+        scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>(); // ref scoremanager
     }
 
     void OnTriggerEnter(Collider other)
@@ -24,7 +24,7 @@ public class DetectCollisions : MonoBehaviour
         }
 
         // Explosion();
-        // scoreManager.IncreaseScore(scoreToGive); // inc score
+        scoreManager.IncreaseScore(scoreToGive); // inc score
     }
 
     /*
