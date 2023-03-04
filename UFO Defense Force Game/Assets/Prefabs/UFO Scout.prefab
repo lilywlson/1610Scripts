@@ -242,6 +242,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   topBounds: 30
   lowerBounds: -15
+  scoreManager: {fileID: 0}
 --- !u!114 &-202402853699454742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,3 +255,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81011a02597aca242bcfe60d3b9ad80a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreToGive: 100
+  explosionParticle: {fileID: 1158526495747477467, guid: 59bfabc145f1b4d458c26e30f33efc3c, type: 3}

@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b1a055d907c419419357df2a4792614, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  speed: 10
 --- !u!114 &9018230784050352016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,6 +144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   topBounds: 30
   lowerBounds: -15
+  scoreManager: {fileID: 0}
 --- !u!114 &6160652155004304836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,3 +157,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09568f22082222248a57513792bc3d81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickUpCounter: 0
+  scoreToGive: 100
