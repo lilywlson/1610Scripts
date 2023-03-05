@@ -8,7 +8,7 @@ public class DetectCollision : MonoBehaviour
     private ScoreManager scoreManager; // variable to hold ref to scoremanager
     public int scoreToGive;
     public ParticleSystem explosionParticle; // store particle system
-
+    
     // Start is called before the first frame update
     void Start()
     {
