@@ -24,9 +24,16 @@ public class PlayerController2D : MonoBehaviour
 
     public bool doubleJump;
 
+    public List<string> items;
+
+    private PickUpScoreManager pickupscoreManager;
+    public int scoreToGive;
+
     // Start is called before the first frame update
     void Start()
     {
+        pickupscoreManager = GameObject.Find("PickUpScoreManager").GetComponent<PickUpScoreManager>();
+        items = new List<string>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -73,6 +80,19 @@ public class PlayerController2D : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Space) && !doubleJump && isGrounded)
         {
             rb.velocity = Vector2.up * jumpForce;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Collectable"))
+        {
+            string itemType = collision.gameObject.GetComponent<CollectableScript>().itemType;
+            print("You have collected a:"+ itemType);
+            items.Add(itemType);
+            print("Inventory Length:"+ items.Count);
+            pickupscoreManager.IncreaseScore(scoreToGive);
+            Destroy(collision.gameObject);
         }
     }
 }
