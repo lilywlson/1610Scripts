@@ -29,17 +29,30 @@ public class PlayerController2D : MonoBehaviour
     private PickUpScoreManager pickupscoreManager;
     public int scoreToGive;
 
+    [Header("Animations")]
+    private Animator playerAnim;
+
     // Start is called before the first frame update
     void Start()
     {
         pickupscoreManager = GameObject.Find("PickUpScoreManager").GetComponent<PickUpScoreManager>();
         items = new List<string>();
         rb = GetComponent<Rigidbody2D>();
+        playerAnim = GetComponent<Animator>();
     }
 
     // Fixed Update is called a fixed or set number of frames. This works best with physics based movement
     void FixedUpdate()
     {
+        if(moveInput > 0 || moveInput < 0)
+        {
+            playerAnim.SetBool("isWalking", true);
+        }
+        else
+        {
+            playerAnim.SetBool("isWalking", false);
+        }
+
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
         moveInput = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
@@ -76,10 +89,12 @@ public class PlayerController2D : MonoBehaviour
         {
             rb.velocity = Vector2.up * jumpForce;
             doubleJump = false;
+            playerAnim.SetTrigger("Jump_Trig");
         }
         else if (Input.GetKeyDown(KeyCode.Space) && !doubleJump && isGrounded)
         {
             rb.velocity = Vector2.up * jumpForce;
+            playerAnim.SetTrigger("Jump_Trig");
         }
     }
 
