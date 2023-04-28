@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6180588259010080778}
   - component: {fileID: -7876812683767770392}
   - component: {fileID: -2004099068244626307}
+  - component: {fileID: 4957077989779167092}
   m_Layer: 0
   m_Name: PowerUp
   m_TagString: Collectable
@@ -115,3 +116,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: Power Up
+--- !u!114 &4957077989779167092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2914182060302197245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cff00be8436102f468cd8776d1dfb5fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHealth: {fileID: 0}
+  health: 1
