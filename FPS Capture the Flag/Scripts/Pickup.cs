@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public enum PickupType
     {
@@ -10,6 +11,10 @@ public enum PickupType
 
 public class Pickup : MonoBehaviour
 {
+    private PlayerController playCon;
+    private Health player;
+    private GameUI gameUI;
+
     public PickupType type;
     public int healthAmount;
     public int ammoAmount;
@@ -20,24 +25,25 @@ public class Pickup : MonoBehaviour
     public float bobHeight;
     private bool bobbingUp;
     private Vector3 startPos;
-    public AudioClip pickupSFX;
 
     // Start is called before the first frame update
     void Start()
     {
         startPos = transform.position;
+        playCon = GameObject.Find("Player").GetComponent<PlayerController>();
+        gameUI = GetComponent<GameUI>();
     }
 
     void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Player"))
         {
-            PlayerController player = other.GetComponent<PlayerController>();
+            Health player = other.GetComponent<Health>();
 
             switch(type)
             {
                 case PickupType.Health:
-                player.GiveHealth(healthAmount);
+                player.AddHealth(healthAmount);
                 break;
 
                 case PickupType.Ammo:

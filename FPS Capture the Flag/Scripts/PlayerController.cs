@@ -8,9 +8,6 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed;
     public float jumpForce;
 
-    public int curHp;
-    public int maxHp;
-
     [Header("Mouse Look")]
     public float lookSensitivity;
     public float maxLookX;
@@ -24,7 +21,6 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         // weapon = GetComponent<Weapon>();
-        curHp = maxHp;
     }
 
     // Start is called before the first frame update
@@ -33,12 +29,8 @@ public class PlayerController : MonoBehaviour
         camera = Camera.main;
         rb = GetComponent<Rigidbody>();
 
-        /*
-        Initialize the UI
-        GameUI.instance.UpdateHealthBar(curHp, maxHp);
-        GameUI.instance.UpdateScoreText(0);
-        GameUI.instance.UpdateAmmoText(weapon.curAmmo, weapon.maxAmmo);
-        */
+        // GameUI.instance.UpdateScoreText(0);
+        // GameUI.instance.UpdateAmmoText(weapon.curAmmo, weapon.maxAmmo);
     }
 
     void Move()
@@ -72,32 +64,15 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damage)
-    {
-        curHp -= damage;
-
-        if(curHp <= 0)
-            Die();
-
-        // GameUI.instance.UpdateHealthBar(curHp, maxHp);
-    }
-
     void Die()
     {
-        // GameManager.instance.LoseGame();
+        GameManager.instance.LoseGame();
 
         Debug.Log("Player is dead. Game Over!");
         Time.timeScale = 0;
     }
 
-    public void GiveHealth(int amountToGive)
-    {
-        // curHp = Mathf.Clamp(curHp + amountToGive, 0, maxHp);
-        // GameUI.instance.UpdateHealthBar(curHp, maxHp);
-
-        Debug.Log("Player healed.");
-    }
-
+/*
     public void GiveAmmo(int amountToGive)
     {
         // weapon.curAmmo = Mathf.Clamp(weapon.curAmmo + amountToGive, 0, weapon.maxAmmo);
@@ -105,6 +80,7 @@ public class PlayerController : MonoBehaviour
 
         Debug.Log("Player has collected ammo.");
     }
+*/
 
     // Update is called once per frame
     void Update()
@@ -123,9 +99,9 @@ public class PlayerController : MonoBehaviour
         if(Input.GetButtonDown("Jump"))
             Jump();
 
-        /*
+        
         if(GameManager.instance.gamePaused == true)
             return;
-        */
+        
     }
 }
